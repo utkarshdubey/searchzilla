@@ -1,0 +1,16 @@
+{
+  "scripts": {
+    "build": "microbundle src/index.ts -o ./dist -f modern,umd --target web --raw true  --tsconfig tsconfig.json",
+    "dev": "microbundle watch src/index.ts -o ./dist -f modern,umd --target web --raw true  --tsconfig tsconfig.json"
+  },
+  "devDependencies": {
+    "microbundle": "^0.12.2"
+  },
+  "name": "searchzilla",
+  "version": "0.0.1",
+  "description": "Searchzilla is a simple search library for your projects with less bullshit.",
+  "main": "dist/index.m.js",
+  "repository": "https://github.com/utkarshdubey/searchzilla",
+  "author": "Utkarsh Dubey",
+  "license": "MIT"
+}
