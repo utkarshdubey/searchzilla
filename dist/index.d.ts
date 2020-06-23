@@ -1,4 +1,1 @@
-declare class SearchE {
-    constructor();
-    ok(): string;
-}
+export { Search } from "./search";

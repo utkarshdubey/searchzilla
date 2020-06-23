@@ -1,8 +1,1 @@
-class SearchE{
-    constructor(){
-
-    }
-    ok(){
-        return "ok"
-    }
-}
+export { Search } from "./search";
