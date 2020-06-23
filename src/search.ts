@@ -41,7 +41,7 @@ export class Search{
                 const filteredItem = item[key].toLowerCase();
                 const filteredSearchKey = searchKey.toLowerCase();
                 if(filteredItem.includes(filteredSearchKey)){
-                    this.filteredData.push({filteredItem});
+                    this.filteredData.push(filteredItem);
                 }
             })
         })
