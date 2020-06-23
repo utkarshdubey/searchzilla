@@ -33,7 +33,7 @@ export class Search{
     }
 
     search(searchKey: string){
-        console.log(this.data, this.keys);
+        // console.log(this.data, this.keys);
 
         // Actual Search logic
         this.data.filter(item => {
