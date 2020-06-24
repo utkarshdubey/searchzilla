@@ -28,7 +28,7 @@
 </head>
 
 <body>
-    <h1 style="style: bold;">Searchzilla Example</h1>
+    <h1 style="font-weight: bolder;">Searchzilla Example</h1>
     <input type="search" id="search" placeholder="Search Data..." />
     <button id="search-btn">Search...</button>
 
@@ -39,8 +39,10 @@
     <script type="module">
         import { Search } from '../dist/searchzilla.modern.js';
 
+        let fetchedData;
         // 🍭 Display a dataset and render it to the DOM
         fetch("https://halocrypt.com/api/play/get-leaderboard").then(res => res.json()).then(res => {
+            fetchedData = res.data;
             res.data.forEach(user => {
                 const element = document.getElementById('users');
 
@@ -80,8 +82,7 @@
 
         // 🍭 Search logic
         document.getElementById('search-btn').addEventListener('click', function(){
-            fetch("https://halocrypt.com/api/play/get-leaderboard").then(res => res.json()).then(res => {
-                const search = new Search({data: res.data})
+            const search = new Search({data: fetchedData})
             search.init();
             search.add('id', 'name');
             const results = search.search(document.getElementById('search').value);
@@ -121,7 +122,6 @@
                 containerDiv.appendChild(fakeDiv);
                 cardDiv.appendChild(containerDiv);
                 element.appendChild(cardDiv);
-            })
             })
             
         })
