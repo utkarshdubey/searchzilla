@@ -71,17 +71,16 @@ export class Search implements SearchOptions{
 
         // Actual Search logic
         this.params.data.filter(item => {
-            this.keys.forEach(key => {
+            this.keys.some(key => {
                 const filteredItem = item[key].toLowerCase();
                 const filteredSearchKey = searchKey.toLowerCase();
                 // Stopwords filtering
 
                 if(filteredItem.includes(filteredSearchKey)){
-                    if(!this.stopwords){
+                    if(!this.stopwords||filterStopwords(filteredItem)){
                         this.filteredData.push(item);
-                    }
-                    if(this.stopwords && !filterStopwords(filteredItem)){
-                        this.filteredData.push(item);
+                        // if we have already found the item once, just return true and end the some loop
+                        return true
                     }
                 }
             })
