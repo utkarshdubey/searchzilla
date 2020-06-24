@@ -4,7 +4,7 @@
 ![Awesomeness Level](https://img.shields.io/badge/awesomeness-extreme-blue.svg)
 
 <p align="center">
-  <img src="./assets/Banner.jpg" alt="AlertsJS Logo">
+  <img src="./assets/Banner@2x.jpg" alt="AlertsJS Logo">
 </p>
 
 Searchzilla is a **simple, easy** way of implementing search on the client-side. You don't really have to read the description either, just start using it.
