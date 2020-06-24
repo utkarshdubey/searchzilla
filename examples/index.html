@@ -1,22 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Searchzilla | Example</title>
+    <style>
+        * {
+            font-family: sans-serif;
+        }
+
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .container {
+            padding: 2px 16px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+    </style>
 </head>
+
 <body>
-    
+    <h1 style="style: bold;">Searchzilla Example</h1>
+    <input type="search" id="search" placeholder="Search Data..." />
+    <button id="search-btn">Search...</button>
+
+    <span>Results:</span>
+    <div id="users" style="padding: 10px;">
+    </div>
 
     <script type="module">
         import { Search } from '../dist/searchzilla.modern.js';
+
+        // 🍭 Display a dataset and render it to the DOM
         fetch("https://halocrypt.com/api/play/get-leaderboard").then(res => res.json()).then(res => {
-            const search = new Search(res.data);
-            search.init();
-            search.add('id', 'name')
-            console.log(search.search("kaneki"))
+            res.data.forEach(user => {
+                const element = document.getElementById('users');
+
+                // Div for Card
+                const cardDiv = document.createElement('div');
+                cardDiv.setAttribute('class', 'card');
+
+                // Div for container
+                const containerDiv = document.createElement('div');
+                containerDiv.setAttribute('class', 'container');
+                
+                // h4 Tag
+                const h4 = document.createElement('h4');
+
+                // User's username
+                const boldTag = document.createElement('b');
+                boldTag.textContent = user.id;
+
+                // User's name
+                const pTag = document.createElement('p');
+                pTag.textContent = user.name;
+
+                // Fake Div to wrap p and h4
+                const fakeDiv = document.createElement('div');
+
+
+                h4.appendChild(boldTag);
+
+                fakeDiv.appendChild(h4);
+                fakeDiv.appendChild(pTag);
+
+                containerDiv.appendChild(fakeDiv);
+                cardDiv.appendChild(containerDiv);
+                element.appendChild(cardDiv);
+            })
         }).catch(err => console.error(err));
+
+        // 🍭 Search logic
+        document.getElementById('search-btn').addEventListener('click', function(){
+            fetch("https://halocrypt.com/api/play/get-leaderboard").then(res => res.json()).then(res => {
+                const search = new Search({data: res.data})
+            search.init();
+            search.add('id', 'name');
+            const results = search.search(document.getElementById('search').value);
+            document.getElementById('users').innerHTML = "";
+
+            results.forEach(user => {
+                const element = document.getElementById('users');
+
+                // Div for Card
+                const cardDiv = document.createElement('div');
+                cardDiv.setAttribute('class', 'card');
+
+                // Div for container
+                const containerDiv = document.createElement('div');
+                containerDiv.setAttribute('class', 'container');
+                
+                // h4 Tag
+                const h4 = document.createElement('h4');
+
+                // User's username
+                const boldTag = document.createElement('b');
+                boldTag.textContent = user.id;
+
+                // User's name
+                const pTag = document.createElement('p');
+                pTag.textContent = user.name;
+
+                // Fake Div to wrap p and h4
+                const fakeDiv = document.createElement('div');
+
+
+                h4.appendChild(boldTag);
+
+                fakeDiv.appendChild(h4);
+                fakeDiv.appendChild(pTag);
+
+                containerDiv.appendChild(fakeDiv);
+                cardDiv.appendChild(containerDiv);
+                element.appendChild(cardDiv);
+            })
+            })
+            
+        })
         
     </script>
 </body>
+
 </html>

@@ -1,9 +1,19 @@
-export declare class Search {
-    constructor(data: any);
+interface SearchOptions {
+    params: {
+        data: any;
+        exclude?: any;
+    };
+}
+export declare class Search implements SearchOptions {
+    constructor(params: any);
     data: any;
     keys: Array<string>;
     filteredData: Array<object>;
-    init(): void;
+    initialized: boolean;
+    params: any;
+    stopwords: any;
+    init(...params: any[]): void;
     add(...addKey: any): void;
     search(searchKey: string): object[];
 }
+export {};
