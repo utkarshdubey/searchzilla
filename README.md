@@ -1,6 +1,7 @@
 # 🔍 searchzilla
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/9242979a-2756-4244-b7f3-97848697f5b7/deploy-status)](https://app.netlify.com/sites/searchzilla/deploys)
+[![NPM Version](https://img.shields.io/npm/v/searchzilla)](https://img.shields.io/npm/v/searchzilla)
 ![Awesomeness Level](https://img.shields.io/badge/awesomeness-extreme-blue.svg)
 
 <p align="center">
