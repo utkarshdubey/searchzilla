@@ -25,11 +25,12 @@
             margin-bottom: 5px;
         }
     </style>
+    
 </head>
 
 <body>
     <h1 style="font-weight: bolder;">Searchzilla Example</h1>
-    <input type="search" id="search" placeholder="Search Data..." />
+    <input type="search" id="search" placeholder="Search Data..."/>
     <button id="search-btn">Search...</button>
 
     <span>Results:</span>
@@ -80,8 +81,10 @@
             })
         }).catch(err => console.error(err));
 
+
         // 🍭 Search logic
-        document.getElementById('search-btn').addEventListener('click', function(){
+        document.getElementById('search').addEventListener('input', function(){
+            if(!document.getElementById('search').value.length) return;
             const search = new Search({data: fetchedData})
             search.init();
             search.add('id', 'name');
