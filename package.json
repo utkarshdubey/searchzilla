@@ -7,7 +7,7 @@
     "microbundle": "^0.12.2"
   },
   "name": "searchzilla",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Searchzilla is a simple search library for your projects with less bullshit.",
   "main": "dist/searchzilla.modern.js",
   "types": "dist/index.d.ts",

@@ -43,6 +43,7 @@
         let fetchedData;
         // 🍭 Display a dataset and render it to the DOM
         fetch("https://halocrypt.com/api/play/get-leaderboard").then(res => res.json()).then(res => {
+            // Hoisting data;
             fetchedData = res.data;
             res.data.forEach(user => {
                 const element = document.getElementById('users');
