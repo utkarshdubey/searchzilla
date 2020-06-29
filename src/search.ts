@@ -18,8 +18,8 @@ export class Search implements SearchOptions {
         }
     }
     data: any;
-    keys: Array < string > ;
-    filteredData: Array < object > ;
+    keys: Array<string> ;
+    filteredData: Array<object> ;
     params: any;
     stopwords: any;
 
@@ -56,11 +56,10 @@ export class Search implements SearchOptions {
                 // Stopwords filtering
 
                 if(filteredItem.includes(filteredSearchKey)){
-                    if(!this.stopwords||filterStopwords(filteredItem)){
+                    if(!this.stopwords || filterStopwords(filteredSearchKey)){
                         this.filteredData.push(item);
-                        // if we have already found the item once, just return true and end the some loop
-                        return true
-                    }
+                        return true;
+                    }                    
                 }
             })
         })

@@ -42,7 +42,7 @@
 
         let fetchedData;
         // 🍭 Display a dataset and render it to the DOM
-        fetch("https://halocrypt.com/api/play/get-leaderboard").then(res => res.json()).then(res => {
+        fetch("https://reqres.in/api/users").then(res => res.json()).then(res => {
             // Hoisting data;
             fetchedData = res.data;
             res.data.forEach(user => {
@@ -61,11 +61,11 @@
 
                 // User's username
                 const boldTag = document.createElement('b');
-                boldTag.textContent = user.id;
+                boldTag.textContent = user.email;
 
                 // User's name
                 const pTag = document.createElement('p');
-                pTag.textContent = user.name;
+                pTag.textContent = user.first_name;
 
                 // Fake Div to wrap p and h4
                 const fakeDiv = document.createElement('div');
@@ -87,7 +87,7 @@
         document.getElementById('search').addEventListener('input', function(){
             if(!document.getElementById('search').value.length) return;
             const search = new Search({data: fetchedData})
-            search.add('id', 'name');
+            search.add('email', 'first_name');
             const results = search.search(document.getElementById('search').value);
             document.getElementById('users').innerHTML = "";
 
@@ -107,11 +107,11 @@
 
                 // User's username
                 const boldTag = document.createElement('b');
-                boldTag.textContent = user.id;
+                boldTag.textContent = user.email;
 
                 // User's name
                 const pTag = document.createElement('p');
-                pTag.textContent = user.name;
+                pTag.textContent = user.first_name;
 
                 // Fake Div to wrap p and h4
                 const fakeDiv = document.createElement('div');
