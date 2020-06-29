@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+</head>
+<body>
+    
+    <script type="module">
+        import { Search } from '../dist/searchzilla.modern.js';
+        const search = new Search({data: [
+            {
+                "name": "Amogh Sabarwal",
+                "description": "Another shitty human being.",
+                "dish": {
+                    "fish": "Tuna fish",
+                    "chicken": "Jitisha"
+                }
+            },
+            {
+                "name": "Tuhina Buniya",
+                "description": "Lemon lettuce's litter lickey.",
+                "dish": {
+                    "fish": "Cactus fish",
+                    "chicken": "Jitisha 2"
+                }
+            },
+            {
+                "name": "Dhruv Bhatia",
+                "description": "Halifax bhai ghus ke mat maar, mera QI kam hor rha hai.",
+                "dish": {
+                    "fish": "Amogh fish",
+                    "chicken": "Protart chicken"
+                }
+            },
+    ]})
+
+    search.add('name', 'description');
+    console.log(search.search('Dhruv'))
+    </script>
+</body>
+</html>
